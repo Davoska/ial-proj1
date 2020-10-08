@@ -76,9 +76,17 @@ void DisposeList (tList *L) {
 ** po inicializaci. Veškerá paměť používaná prvky seznamu L bude korektně
 ** uvolněna voláním operace free.
 ***/
-	
+    tElemPtr elemPtr = L->First;
+    tElemPtr elemNextPtr;
+    while (elemPtr != NULL)
+    {
+        elemNextPtr = elemPtr->ptr->ptr;
+        free(elemPtr);
+        elemPtr = elemNextPtr;
+    }
 
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+    L->First = NULL;
+    L->Act = NULL;
 }
 
 void InsertFirst (tList *L, int val) {
