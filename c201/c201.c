@@ -197,9 +197,10 @@ void PostInsert (tList *L, int val) {
         if (newElemPtr == NULL)
         {
             Error();
+            return;
         }
 
-        newElemPtr->ptr = L->Act;
+        newElemPtr->ptr = L->Act->ptr;
         L->Act = newElemPtr;
         newElemPtr->data = val;
     }
