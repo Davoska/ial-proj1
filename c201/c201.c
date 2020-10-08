@@ -151,7 +151,7 @@ void DeleteFirst (tList *L) {
             L->Act = NULL;
         }
 
-        tElemPtr ptr = L->First;
+        tElemPtr ptr = L->First->ptr;
         free(L->First);
         L->First = ptr;
     }
