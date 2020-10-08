@@ -94,7 +94,6 @@ void InsertFirst (tList *L, int val) {
     if (newElemPtr == NULL)
     {
         Error();
-        exit(1);
     }
 
     // Přiřazení hodnot proměnným
