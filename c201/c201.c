@@ -133,9 +133,21 @@ void DeleteFirst (tList *L) {
 ** Pokud byl rušený prvek aktivní, aktivita seznamu se ztrácí.
 ** Pokud byl seznam L prázdný, nic se neděje.
 **/
-	
+    if (L->First == NULL)
+    {
+        return;
+    }
+    else
+    {
+        if (L->First == L->Act)
+        {
+            L->Act = NULL;
+        }
 
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+        tElemPtr ptr = L->First;
+        free(L->First);
+        L->First = ptr;
+    }
 }	
 
 void PostDelete (tList *L) {
