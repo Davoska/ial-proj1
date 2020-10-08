@@ -180,9 +180,22 @@ void PostInsert (tList *L, int val) {
 ** V případě, že není dostatek paměti pro nový prvek při operaci malloc,
 ** zavolá funkci Error().
 **/
-	
-	
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+    if (L->Act == NULL)
+    {
+        return;
+    }
+    else
+    {
+        tElemPtr newElemPtr = malloc(sizeof(struct tElem));
+        if (newElemPtr == NULL)
+        {
+            Error();
+        }
+
+        newElemPtr->ptr = L->Act;
+        L->Act = newElemPtr;
+        newElemPtr->data = val;
+    }
 }
 
 void Copy (tList *L, int *val) {
