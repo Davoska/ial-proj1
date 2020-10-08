@@ -220,9 +220,11 @@ void Actualize (tList *L, int val) {
 ** Přepíše data aktivního prvku seznamu L hodnotou val.
 ** Pokud seznam L není aktivní, nedělá nic!
 **/
-	
-	
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+    if (L->Act != NULL)
+    {
+        L->Act->data = val;
+    }
+    
 }
 
 void Succ (tList *L) {
