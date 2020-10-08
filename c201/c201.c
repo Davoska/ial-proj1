@@ -109,9 +109,7 @@ void First (tList *L) {
 ** Funkci implementujte jako jediný příkaz, aniž byste testovali,
 ** zda je seznam L prázdný.
 **/
-	
-
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+    L->Act = L->First;
 }
 
 void CopyFirst (tList *L, int *val) {
