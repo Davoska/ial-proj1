@@ -215,6 +215,10 @@ void Copy (tList *L, int *val) {
     {
         *val = L->Act->data;
     }
+    else
+    {
+        Error();
+    }
 }
 
 void Actualize (tList *L, int val) {
