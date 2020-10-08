@@ -231,9 +231,10 @@ void Succ (tList *L) {
 ** Všimněte si, že touto operací se může aktivní seznam stát neaktivním.
 ** Pokud není předaný seznam L aktivní, nedělá funkce nic.
 **/
-	
-	
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+    if (L->Act != NULL)
+    {
+        L->Act = L->Act->ptr;
+    }
 }
 
 int Active (tList *L) {
