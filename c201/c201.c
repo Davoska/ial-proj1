@@ -156,9 +156,21 @@ void PostDelete (tList *L) {
 ** Pokud není seznam L aktivní nebo pokud je aktivní poslední prvek seznamu L,
 ** nic se neděje.
 **/
-	
-	
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+    if (L->Act == NULL)
+    {
+        return;
+    }
+    else
+    {
+        if (L->Act->ptr == NULL)
+        {
+            return;
+        }
+
+        tElemPtr elemPtr = L->Act->ptr;
+        L->Act->ptr = elemPtr->ptr;
+        free(elemPtr);
+    }
 }
 
 void PostInsert (tList *L, int val) {
