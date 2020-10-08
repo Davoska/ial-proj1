@@ -106,7 +106,7 @@ void InsertFirst (tList *L, int val) {
 
     // Přiřazení hodnot proměnným
     newElemPtr->data = val;
-    newElemPtr->ptr = NULL;
+    newElemPtr->ptr = L->First;
     L->First = newElemPtr;
 }
 
