@@ -245,7 +245,7 @@ int Active (tList *L) {
 ** Je-li seznam L aktivní, vrací nenulovou hodnotu, jinak vrací 0.
 ** Tuto funkci je vhodné implementovat jedním příkazem return. 
 **/
-    return L->Act;
+    return (L->Act == NULL) ? 0 : 1;
 }
 
 /* Konec c201.c */
