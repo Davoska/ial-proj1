@@ -201,7 +201,7 @@ void PostInsert (tList *L, int val) {
         }
 
         newElemPtr->ptr = L->Act->ptr;
-        L->Act = newElemPtr;
+        L->Act->ptr = newElemPtr;
         newElemPtr->data = val;
     }
 }
