@@ -117,9 +117,14 @@ void CopyFirst (tList *L, int *val) {
 ** Prostřednictvím parametru val vrátí hodnotu prvního prvku seznamu L.
 ** Pokud je seznam L prázdný, volá funkci Error().
 **/
-	
-
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+    if (L->First != NULL)
+    {
+        *val = L->First->data;
+    }
+    else
+    {
+        Error();
+    }
 }
 
 void DeleteFirst (tList *L) {
