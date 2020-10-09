@@ -200,7 +200,17 @@ void queueUp (tQueue* q, char c) {
 **
 ** Při implementaci využijte dříve definovaných funkcí queueFull a nextIndex.
 */
-
-	  solved = FALSE;                  /* V případě řešení, smažte tento řádek! */
+	if (q != NULL)
+	{
+		if (queueFull(q))
+		{
+			queueError(QERR_UP);
+		}
+		else
+		{
+			q->arr[q->b_index] = c;
+			q->b_index = nextIndex(q->b_index);	
+		}
+	}
 }
 /* Konec příkladu c203.c */
