@@ -104,8 +104,7 @@ int queueEmpty (const tQueue* q) {
 ** Vrací nenulovou hodnotu, pokud je frona prázdná, jinak vrací hodnotu 0. 
 ** Funkci je vhodné implementovat jedním příkazem return.
 */
-
-	  solved = FALSE;                  /* V případě řešení, smažte tento řádek! */
+	return (q != NULL && q->b_index == q->f_index) ? 1 : 0;
 }
 
 int queueFull (const tQueue* q) {
@@ -114,8 +113,15 @@ int queueFull (const tQueue* q) {
 ** Funkci je vhodné implementovat jedním příkazem return
 ** s využitím pomocné funkce nextIndex.
 */
+	if (q != NULL)
+	{
+		if (nextIndex(q->b_index) == q->f_index)
+		{
+			return 1;
+		}
+	}
 
-	  solved = FALSE;                  /* V případě řešení, smažte tento řádek! */
+	return 0;
 }
 
 void queueFront (const tQueue* q, char* c) {
