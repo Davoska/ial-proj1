@@ -176,8 +176,18 @@ void queueGet (tQueue* q, char* c) {
 ** Při implementaci využijte dříve definovaných funkcí queueEmpty,
 ** queueFront a queueRemove.
 */
-
-	  solved = FALSE;                  /* V případě řešení, smažte tento řádek! */
+	if (q != NULL)
+	{
+		if (queueEmpty(q))
+		{
+			queueError(QERR_GET);
+		}
+		else
+		{
+			queueFront(q, c);
+			queueRemove(q);
+		}
+	}
 }
 
 void queueUp (tQueue* q, char c) {
