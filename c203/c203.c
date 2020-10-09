@@ -155,8 +155,17 @@ void queueRemove (tQueue* q) {
 ** Hodnotu na uvolněné pozici ve frontě nijak neošetřujte (nepřepisujte).
 ** Při implementaci využijte dříve definované funkce queueEmpty a nextIndex.
 */
-
-	  solved = FALSE;                  /* V případě řešení, smažte tento řádek! */
+	if (q != NULL)
+	{
+		if (queueEmpty(q))
+		{
+			queueError(QERR_REMOVE);
+		}
+		else
+		{
+			q->f_index = nextIndex(q->f_index);
+		}
+	}
 }
 
 void queueGet (tQueue* q, char* c) {
