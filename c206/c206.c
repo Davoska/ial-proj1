@@ -175,9 +175,27 @@ void DLDeleteFirst (tDLList *L) {
 ** Zruší první prvek seznamu L. Pokud byl první prvek aktivní, aktivita 
 ** se ztrácí. Pokud byl seznam L prázdný, nic se neděje.
 **/
-	
-	
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+    tDLElemPtr elemPtr;
+    if (L->First != NULL)
+    {
+        elemPtr = L->First;
+        if (L->Act == L->First)
+        { //první byl aktivní
+            L->Act = NULL; //ruší se aktivita
+        }
+    
+        if (L->First == L->Last)
+        {//seznam měl jediný prvek–zruší se
+            L->First = NULL;
+            L->Last = NULL;
+        }
+        else 
+        {
+            L->First = L->First->rptr; //aktualizace začátku seznamu
+            L->First->lptr = NULL; //ukazatel prvního doleva na NULL
+        }
+        free(elemPtr);
+    }
 }	
 
 void DLDeleteLast (tDLList *L) {
