@@ -242,9 +242,24 @@ void DLPreDelete (tDLList *L) {
 ** Pokud je seznam L neaktivní nebo pokud je aktivní prvek
 ** prvním prvkem seznamu, nic se neděje.
 **/
-	
-			
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+    if (L->Act != NULL)
+    {
+        if (L->Act->lptr != NULL)
+        { //Je co rušit?
+            tDLElemPtr elemPtr;
+            elemPtr = L->Act->lptr; //ukazatel na rušený
+            L->Act->lptr = elemPtr->lptr; //překlenutí rušeného
+            if (elemPtr == L->First)
+            { //rušený první
+                L->First = L->Act; //prvním bude aktivní
+            }
+            else
+            { //prvek před zrušeným ukazuje doprava na Act
+                elemPtr->lptr->rptr = L->Act;
+            }
+            free(elemPtr);
+        } //je co rušit
+    } //aktivní
 }
 
 void DLPostInsert (tDLList *L, int val) {
