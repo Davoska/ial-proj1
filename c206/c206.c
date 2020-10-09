@@ -97,9 +97,26 @@ void DLInsertFirst (tDLList *L, int val) {
 ** V případě, že není dostatek paměti pro nový prvek při operaci malloc,
 ** volá funkci DLError().
 **/
-	
-	
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+    tDLElemPtr newElemPtr = malloc(sizeof(struct tDLElem));
+    if (newElemPtr == NULL)
+    {
+        DLError();
+        return;
+    }
+    
+    newElemPtr->data = val;
+    newElemPtr->rptr = L->First; //pravý nového na prvního
+    newElemPtr->lptr = NULL; //levý nového ukazuje na NULL
+    if (L->First != NULL)
+    {   //seznam už měl prvního
+        L->First->lptr = newElemPtr; //první bude doleva
+        //ukazovat na nový prvek
+    }
+    else
+    { //vložení do prázdného seznamu
+        L->Last = newElemPtr;
+    }
+    L->First = newElemPtr; //korekce ukazatele začátku
 }
 
 void DLInsertLast(tDLList *L, int val) {
@@ -108,9 +125,6 @@ void DLInsertLast(tDLList *L, int val) {
 ** V případě, že není dostatek paměti pro nový prvek při operaci malloc,
 ** volá funkci DLError().
 **/ 	
-	
-	
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
 }
 
 void DLFirst (tDLList *L) {
