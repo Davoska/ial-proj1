@@ -134,7 +134,27 @@ void DLInsertLast(tDLList *L, int val) {
 ** Vloží nový prvek na konec seznamu L (symetrická operace k DLInsertFirst).
 ** V případě, že není dostatek paměti pro nový prvek při operaci malloc,
 ** volá funkci DLError().
-**/ 	
+**/
+    tDLElemPtr newElemPtr = malloc(sizeof(struct tDLElem));
+    if (newElemPtr == NULL)
+    {
+        DLError();
+        return;
+    }
+    
+    newElemPtr->data = val;
+    newElemPtr->rptr = NULL; //pravý nového na NULL
+    newElemPtr->lptr = L->Last; //levý nového ukazuje na přechozího posledního
+    if (L->Last != NULL)
+    {   //seznam už měl posledního
+        L->Last->rptr = newElemPtr;
+        //ukazovat na nový prvek
+    }
+    else
+    { //vložení do prázdného seznamu
+        L->First = newElemPtr;
+    }
+    L->Last = newElemPtr; //korekce ukazatele začátku
 }
 
 void DLFirst (tDLList *L) {
