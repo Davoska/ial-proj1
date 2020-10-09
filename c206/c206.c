@@ -239,9 +239,27 @@ void DLDeleteLast (tDLList *L) {
 ** Pokud byl poslední prvek aktivní, aktivita seznamu se ztrácí.
 ** Pokud byl seznam L prázdný, nic se neděje.
 **/ 
-	
-	
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+    tDLElemPtr elemPtr;
+    if (L->First != NULL)
+    {
+        elemPtr = L->Last;
+        if (L->Act == L->Last)
+        { //poslední byl aktivní
+            L->Act = NULL; //ruší se aktivita
+        }
+    
+        if (L->First == L->Last)
+        {//seznam měl jediný prvek–zruší se
+            L->First = NULL;
+            L->Last = NULL;
+        }
+        else 
+        {
+            L->Last = L->Last->lptr; //aktualizace konce seznamu
+            L->Last->rptr = NULL; //ukazatel posledního doprava na NULL
+        }
+        free(elemPtr);
+    }
 }
 
 void DLPostDelete (tDLList *L) {
