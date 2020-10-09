@@ -172,9 +172,7 @@ void DLLast (tDLList *L) {
 ** Funkci implementujte jako jediný příkaz (nepočítáme-li return),
 ** aniž byste testovali, zda je seznam L prázdný.
 **/
-	
-	
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+    L->Act = L->Last;
 }
 
 void DLCopyFirst (tDLList *L, int *val) {
