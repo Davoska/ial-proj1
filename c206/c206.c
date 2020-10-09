@@ -397,9 +397,10 @@ void DLActualize (tDLList *L, int val) {
 ** Přepíše obsah aktivního prvku seznamu L.
 ** Pokud seznam L není aktivní, nedělá nic.
 **/
-	
-	
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+    if (L->Act != NULL)
+    {
+        L->Act->data = val;
+    }
 }
 
 void DLSucc (tDLList *L) {
