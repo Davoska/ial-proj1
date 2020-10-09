@@ -215,9 +215,25 @@ void DLPostDelete (tDLList *L) {
 ** Pokud je seznam L neaktivní nebo pokud je aktivní prvek
 ** posledním prvkem seznamu, nic se neděje.
 **/
-	
-		
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+    if (L->Act != NULL)
+    {
+        if (L->Act->rptr != NULL)
+        { //Je co rušit?
+            tDLElemPtr elemPtr;
+            elemPtr = L->Act->rptr; //ukazatel na rušený
+            L->Act->rptr = elemPtr->rptr;//překlenutí rušeného
+            
+            if (elemPtr == L->Last)
+            { //rušený poslední
+                L->Last = L->Act; //posledním bude aktivní
+            }
+            else
+            { //prvek za zrušeným ukazuje doleva na Act
+                elemPtr->rptr->lptr = L->Act;
+            }
+            free(elemPtr);
+        } //je co rušit
+    } //aktivní		
 }
 
 void DLPreDelete (tDLList *L) {
