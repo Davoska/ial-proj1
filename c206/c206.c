@@ -180,10 +180,14 @@ void DLCopyFirst (tDLList *L, int *val) {
 ** Prostřednictvím parametru val vrátí hodnotu prvního prvku seznamu L.
 ** Pokud je seznam L prázdný, volá funkci DLError().
 **/
-
-	
-	
- solved = FALSE;                   /* V případě řešení, smažte tento řádek! */
+    if (L->First == NULL)
+    {
+        DLError();
+    }
+    else
+    {
+        *val = L->First->data;
+    }
 }
 
 void DLCopyLast (tDLList *L, int *val) {
