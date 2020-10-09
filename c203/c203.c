@@ -135,8 +135,17 @@ void queueFront (const tQueue* q, char* c) {
 **
 ** Při implementaci využijte dříve definované funkce queueEmpty.
 */
-
-	  solved = FALSE;                  /* V případě řešení, smažte tento řádek! */
+	if (q != NULL)
+	{
+		if (q->b_index == q->f_index)
+		{
+			queueError(QERR_FRONT);
+		}
+		else 
+		{
+			*c = q->arr[q->f_index];
+		}
+	}
 }
 
 void queueRemove (tQueue* q) {
