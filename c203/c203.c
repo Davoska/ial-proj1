@@ -137,7 +137,7 @@ void queueFront (const tQueue* q, char* c) {
 */
 	if (q != NULL)
 	{
-		if (q->b_index == q->f_index)
+		if (queueEmpty(q))
 		{
 			queueError(QERR_FRONT);
 		}
