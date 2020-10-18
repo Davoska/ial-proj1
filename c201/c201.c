@@ -83,7 +83,7 @@ void DisposeList (tList *L) {
     //Prochazeni vsech polozek
     while (elemPtr != NULL)
     {
-        elemNextPtr = elemPtr->ptr->ptr;
+        elemNextPtr = elemPtr->ptr;
         free(elemPtr);
         elemPtr = elemNextPtr;
     }
