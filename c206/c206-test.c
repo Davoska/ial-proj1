@@ -30,7 +30,9 @@ void print_elements_of_list(tDLList TL)	{
 		CurrListLength++;
 	}
     if (CurrListLength>=MaxListLength)
-        printf("\nList exceeded maximum length!");
+	{
+		printf("\nList exceeded maximum length!");
+	}
 	printf("\n-----------------\n");     
 }
 
