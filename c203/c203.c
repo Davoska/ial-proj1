@@ -8,14 +8,14 @@
 /*  Autor implementace řešení úkolů: David Hurta, říjen 2020                  */
 /* ************************************************************************** */
 /*
-/*	Poznámka studenta:
-/* 			V tomto zadání se nepíše o nutnosti kontrolování nebo nekontrolování,
-/*			zda je ukazatel platný. Rozhodl jsem se ukazatele kontrolovat.
-/*
-/*
-/*
-/*
-/*
+**	Poznámka studenta:
+** 			V tomto zadání se nepíše o nutnosti kontrolování nebo nekontrolování,
+**			zda je ukazatel platný. Rozhodl jsem se ukazatele kontrolovat.
+**
+**
+**
+**
+**
 ** Implementujte frontu znaků v poli. Přesnou definici typů naleznete
 ** v hlavičkovém souboru c203.h (ADT fronta je reprezentována strukturou tQueue,
 ** která obsahuje pole 'arr' pro uložení hodnot ve frontě a indexy f_index
