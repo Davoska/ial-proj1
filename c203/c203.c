@@ -5,7 +5,16 @@
 /*  Referenční implementace: Petr Přikryl, 1994                               */
 /*  Přepis do jazyka C: Václav Topinka, září 2005                             */
 /*  Úpravy: Kamil Jeřábek, září 2020                                          */
+/*  Autor implementace řešení úkolů: David Hurta, říjen 2020                  */
 /* ************************************************************************** */
+/*
+/*	Poznámka studenta:
+/* 			V tomto zadání se nepíše o nutnosti kontrolování nebo nekontrolování,
+/*			zda je ukazatel platný. Rozhodl jsem se ukazatele kontrolovat.
+/*
+/*
+/*
+/*
 /*
 ** Implementujte frontu znaků v poli. Přesnou definici typů naleznete
 ** v hlavičkovém souboru c203.h (ADT fronta je reprezentována strukturou tQueue,

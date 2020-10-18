@@ -8,6 +8,7 @@
 **                                Přepracované zadání: Petr Přikryl, březen 1998
 **                                  Přepis do jazyka C: Martin Tuček, říjen 2004
 **                                              Úpravy: Kamil Jeřábek, září 2020
+**                      Autor implementace řešení úkolů: David Hurta, říjen 2020
 **
 ** Implementujte abstraktní datový typ jednosměrný lineární seznam.
 ** Užitečným obsahem prvku seznamu je celé číslo typu int.
@@ -78,6 +79,8 @@ void DisposeList (tList *L) {
 ***/
     tElemPtr elemPtr = L->First;
     tElemPtr elemNextPtr;
+
+    //Prochazeni vsech polozek
     while (elemPtr != NULL)
     {
         elemNextPtr = elemPtr->ptr->ptr;

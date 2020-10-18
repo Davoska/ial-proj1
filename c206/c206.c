@@ -4,7 +4,8 @@
 **
 **                   Návrh a referenční implementace: Bohuslav Křena, říjen 2001
 **                            Přepracované do jazyka C: Martin Tuček, říjen 2004
-**                                            Úpravy: Kamil Jeřábek, září 2020
+**                                              Úpravy: Kamil Jeřábek, září 2020
+**                      Autor implementace řešení úkolů: David Hurta, říjen 2020
 **
 ** Implementujte abstraktní datový typ dvousměrně vázaný lineární seznam.
 ** Užitečným obsahem prvku seznamu je hodnota typu int.
@@ -89,6 +90,7 @@ void DLDisposeList (tDLList *L) {
     tDLElemPtr elemPtr = L->First;
     tDLElemPtr nextElemPtr;
 
+    // Prochazeni vsech polozek
     while (elemPtr != NULL)
     {
         nextElemPtr = elemPtr->rptr;
